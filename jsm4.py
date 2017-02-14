@@ -6,6 +6,10 @@ from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
 from kivy.lib.osc         import oscAPI 
 
+
+
+# Warning, have a global Vlayout may cause an error. 
+
 class VideoPlayer(App):
     #Set IP and port of receiver
 	currentVid = -1
