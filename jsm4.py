@@ -8,7 +8,7 @@ from kivy.lib.osc         import oscAPI
 
 
 
-# Warning, have a global Vlayout may cause an error. 
+# Calling scrubVideo before VideoPlayer is instantiated might be the cause of an error/future errors
 
 class VideoPlayer(App):
     #Set IP and port of receiver
@@ -16,12 +16,14 @@ class VideoPlayer(App):
 	Vlayout =   BoxLayout(orientation='vertical') 
 	
 	def build(self):		
-		Vlayout =  BoxLayout(orientation='vertical') 
 		self.scrubVideo(0,.9)
 		return self.Vlayout
 
 	def scrubVideo(self, vidNum, vidPos):
 		if vidNum != self.currentVid:
+			if self.currentVid != -1:
+				self.video.unload()
+
 			if vidNum == 0:
 				self.video = Video(source='vid0.m4v')
 			elif vidNum == 1:
@@ -31,6 +33,7 @@ class VideoPlayer(App):
 			elif vidNum == 3:
 				self.video = Video(source='vid3.m4v')
 			currentVid = vidNum
+			
 			self.Vlayout.add_widget(self.video)
 			
 		self.video.state = 'play'
