@@ -13,15 +13,14 @@ from kivy.lib.osc         import oscAPI
 class VideoPlayer(App):
     currentVid = -1	
     Vlayout =  BoxLayout(orientation='vertical')
-    def build(self):		
-         
-		#self.scrubVideo(0,.9)
+    def build(self):
+        self.scrubVideo(0,.9)
         return self.Vlayout
 
     def scrubVideo(self, vidNum, vidPos):
         if vidNum != self.currentVid:
             if vidNum == 0:
-                self.video = Video(source='transition1.m4v')
+                self.video = Video(source='vid2.mp4')
             elif vidNum == 1:
                 self.video = Video(source='transition1.m4v')
             elif vidNum == 2:
@@ -37,7 +36,7 @@ class VideoPlayer(App):
 			
 		#self.video.seek(vidPos)
 		
-#VideoPlayer().run()
+VideoPlayer().run()
 
 
 
