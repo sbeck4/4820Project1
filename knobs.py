@@ -19,6 +19,30 @@ from kivy.config import Config
 
 from tei_knob import  Knob
 
+import kivy
+from kivy.lib.osc         import oscAPI 
+from kivy.app import App
+# Import clock (required by osc listener)
+from kivy.clock           import Clock
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.label import Label
+
+class sender(App):
+
+    def build(self):
+        oscAPI.init()
+
+    def sendMessage(self, str):
+        ip = '127.0.0.1'
+        port = 5000
+        print("Sending Message!\n")
+        oscAPI.sendMsg( '0', dataArray=str, ipAddr= ip, port= port)
+    
+    pass
+
+sender().run()
+
 class MyKnob(Knob):
     # Object property that receives the image
     obj = ObjectProperty()
@@ -27,7 +51,9 @@ class MyKnob(Knob):
     def on_knob(self, value, pattern_id):
         angle = value
         self.obj.rotation = angle
-        print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
+        sender.sendMessage(self, "Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
+        # print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
+
 
     def on_token_placed(self, instance, value):
         print("token Placed: " + str(value))
