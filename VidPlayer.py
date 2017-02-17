@@ -8,35 +8,48 @@ from kivy.lib.osc         import oscAPI
 
 
 
-# Warning, have a global Vlayout may cause an error. 
+from kivy.uix.relativelayout import RelativeLayout
+ 
+from kivy.uix.button import Button
+from kivy.uix.widget import Widget
+from kivy.uix.videoplayer import VideoPlayer
+from kivy.config import Config
+from random import randint
 
-class VideoPlayer(App):
-    currentVid = -1	
-    Vlayout =  BoxLayout(orientation='vertical')
+     
+parent= Widget()
+button= Button()
+         
+class MyApp(App):
+
     def build(self):
-        self.scrubVideo(0,.9)
-        return self.Vlayout
+         Config.set('graphics', 'width', '1920')
+         Config.set('graphics', 'height', '1000')
 
-    def scrubVideo(self, vidNum, vidPos):
-        if vidNum != self.currentVid:
-            if vidNum == 0:
-                self.video = Video(source='vid2.mp4')
-            elif vidNum == 1:
-                self.video = Video(source='transition1.m4v')
-            elif vidNum == 2:
-                self.video = Video(source='transition3.m4v')
-            elif vidNum == 3:
-                self.video = Video(source='transition4.m4v')
-            currentVid = vidNum
-            self.Vlayout.add_widget(self.video)
+         button = Button(text='Play video', font_size=14)
+         button.bind(on_press=on_button_press)  
+         parent.add_widget(button) #add button 
+         return parent
+               
+def on_button_press(self):
+        
+        rand = randint(1,4)
 
-        self.video.state = 'play'
+        if rand == 1:
+            video = VideoPlayer(source='transition1.mp4', state='play')
+        else:
+            video = VideoPlayer(source='transition2.mp4', state='play')
 
-		#while (self.video.loaded == -1): 
-			
-		#self.video.seek(vidPos)
-		
-VideoPlayer().run()
+
+        widget1 = RelativeLayout(size_hint = (None, None), 
+                                 size = (1920,1080),
+                                 pos = (0,0))
+        widget1.add_widget(video)
+        parent.add_widget(widget1) #add videoplayer
+        return parent
+     
+if __name__ == '__main__':
+    MyApp().run()
 
 
 

@@ -34,11 +34,11 @@ class sender(App):
         oscAPI.init()
 
     def sendMessage(self, str):
-        ip = '127.0.0.1'
+        ip = '198.21.196.89'
         port = 5000
         print("Sending Message!\n")
-        oscAPI.sendMsg( '0', dataArray=str, ipAddr= ip, port= port)
-    
+        oscAPI.sendMsg( '0', [0, str], ipAddr= ip, port= port)
+        
     pass
 
 sender().run()
@@ -51,7 +51,7 @@ class MyKnob(Knob):
     def on_knob(self, value, pattern_id):
         angle = value
         self.obj.rotation = angle
-        sender.sendMessage(self, "Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
+        sender.sendMessage(self, str(int(self.obj.rotation)))
         # print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
 
 
