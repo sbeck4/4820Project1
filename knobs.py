@@ -14,6 +14,7 @@ from kivy.uix.scatter    import Scatter
 from kivy.uix.image      import Image
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.relativelayout import RelativeLayout
+from kivy.config import Config
 
 
 from tei_knob import  Knob
@@ -34,6 +35,8 @@ class TeiKnobApp(App):
 
     def build(self):
 
+        Config.set('graphics', 'width', '950')
+        Config.set('graphics', 'height', '540')
         # creates a float layout
         root = FloatLayout(size=(1920,1080), pos = (0,0))
         # Creates a scatter widget
@@ -51,7 +54,7 @@ class TeiKnobApp(App):
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
-                         knobimg_source = "img/knob_metal.png",
+                         knobimg_source = "knob1.png",
                          marker_img = "img/bline.png",
                          markeroff_color = (0.3, 0.3, .3, 1),
                          pattern_id= 99, #(ids 1 to 8, or 99 for no id)
@@ -62,7 +65,7 @@ class TeiKnobApp(App):
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
-                         knobimg_source = "img/knob_metal.png",
+                         knobimg_source = "knob2.png",
                          marker_img = "img/bline.png",
                          markeroff_color = (0.3, 0.3, .3, 1),
                          pattern_id= 99, #(ids 1 to 8, or 99 for no id)
@@ -73,7 +76,7 @@ class TeiKnobApp(App):
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
-                         knobimg_source = "img/knob_metal.png",
+                         knobimg_source = "knob3.png",
                          marker_img = "img/bline.png",
                          markeroff_color = (0.3, 0.3, .3, 1),
                          pattern_id= 99, #(ids 1 to 8, or 99 for no id)
@@ -84,7 +87,7 @@ class TeiKnobApp(App):
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
-                         knobimg_source = "img/knob_metal.png",
+                         knobimg_source = "knob4.png",
                          marker_img = "img/bline.png",
                          markeroff_color = (0.3, 0.3, .3, 1),
                          pattern_id= 99, #(ids 1 to 8, or 99 for no id)
@@ -93,25 +96,25 @@ class TeiKnobApp(App):
 
         widget1 = RelativeLayout(size_hint = (None, None), 
                                  size = (300,300),
-                                 pos = (100,0))
+                                 pos = (94,29))
         widget1.add_widget(knob1)
 
 
         widget2 = RelativeLayout(size_hint = (None, None), 
                                  size = (300,300),
-                                 pos = (580,0))
+                                 pos = (572,29))
         widget2.add_widget(knob2)
 
 
         widget3 = RelativeLayout(size_hint = (None, None), 
                                  size = (300,300),
-                                 pos = (1050,0))
+                                 pos = (1048,29))
         widget3.add_widget(knob3)
 
 
         widget4 = RelativeLayout(size_hint = (None, None), 
                                  size = (300,300),
-                                 pos = (1530,0))
+                                 pos = (1526,29))
         widget4.add_widget(knob4)
         
         
