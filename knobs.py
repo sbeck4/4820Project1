@@ -27,6 +27,7 @@ class MyKnob(Knob):
     def on_knob(self, value, pattern_id):
         angle = value
         self.obj.rotation = angle
+        print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
 
     def on_token_placed(self, instance, value):
         print("token Placed: " + str(value))
