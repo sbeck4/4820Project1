@@ -24,6 +24,7 @@ class receiver(App):
     # Set ip and port to listen to
     ip = '0.0.0.0' # listens to any sender IP
     port = 5000    # listens only to this port
+    play = VideoPlayer.VideoPlayer()
 
     def build(self):
         # Starts OSC
@@ -50,16 +51,16 @@ class receiver(App):
         # return root
         #return root
 #if __name__ == "__main__":
-    def receivedegrees(self, degrees, instance):
+    def receivedegrees(self, vidnum, instance):
         print "received data from sender"
-        print "%s" % degrees[2]
-        vid_num = 0 #int(degrees[3])
-        time = float(degrees[2]) / 360;
-        print "percent of way through video: %f" % time
-        play = VideoPlayer.VideoPlayer()
-        play.scrubVideo(vid_num, time)
+        print "%s" % vidnum[0]
+        vid_num = vidnum[0] #int(degrees[3])
+        #time = float(degrees[2]) / 360;
+        print "vidnum = %s" % vid_num
+        #play = VideoPlayer.VideoPlayer()
+        self.play.scrubVideo(vid_num, 0)
       
-        play.run()
+        self.play.run()
       
         return play
 

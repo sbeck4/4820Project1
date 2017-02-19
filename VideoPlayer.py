@@ -14,6 +14,10 @@ class VideoPlayer(App):
     currentVid = -1	
     Vlayout =  BoxLayout(orientation='vertical')
     start = 0
+    video1 = Video(source='transition1.mp4')
+    video2 = Video(source='transition2.mp4') 
+    video3 = Video(source='transition3.mp4') 
+    video4 = Video(source='transition4.mp4')    
     
     def build(self):	
 	
@@ -30,22 +34,31 @@ class VideoPlayer(App):
     def scrubVideo(self, vidNum, vidPos):
         
         if vidNum != self.currentVid:
-
             print 'lol'
+            if self.currentVid >= 0:
+                self.Vlayout.clear_widgets()
             if vidNum == 0:
-                self.video = Video(source='transition1.mp4')
-                print 'lol2'
+                self.Vlayout.add_widget(self.video1)
+                self.video1.state = 'play'
+                #self.video.source = 'transition1.mp4'
+                #print 'lol2'
             elif vidNum == 1:
-                self.video = Video(source='transition3.mp4')
+                self.Vlayout.add_widget(self.video2)
+                self.video2.state = 'play'
+                #self.video = Video(source='transition3.mp4')
             elif vidNum == 2:
-                self.video = Video(source='transition3.mp4')
+                self.Vlayout.add_widget(self.video3)
+                self.video3.state = 'play'
+                #self.video = Video(source='transition3.mp4')
             elif vidNum == 3:
-                self.video = Video(source='transition4.mp4')
+                self.Vlayout.add_widget(self.video4)
+                self.video4.state = 'play'
+                #self.video = Video(source='transition4.mp4')
             currentVid = vidNum
-            self.Vlayout.add_widget(self.video)
-
+            #self.Vlayout.add_widget(self.video)
+        
         #self.video.unload()
-        self.video.state = 'play'
+        #self.video.state = 'play'
 
 
 
