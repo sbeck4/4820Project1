@@ -53,8 +53,8 @@ class receiver(App):
 #if __name__ == "__main__":
     def receivedegrees(self, vidnum, instance):
         print "received data from sender"
-        print "%s" % vidnum[0]
-        vid_num = vidnum[0] #int(degrees[3])
+        print "%s" % vidnum[2]
+        vid_num = vidnum[2] #int(degrees[3])
         #time = float(degrees[2]) / 360;
         print "vidnum = %s" % vid_num
         #play = VideoPlayer.VideoPlayer()
