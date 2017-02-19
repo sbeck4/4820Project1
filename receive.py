@@ -59,9 +59,7 @@ class receiver(App):
         print "vidnum = %s" % vid_num
         #play = VideoPlayer.VideoPlayer()
         self.play.scrubVideo(vid_num, 0)
-      
-        self.play.run()
-      
+         
         return play
 
 
