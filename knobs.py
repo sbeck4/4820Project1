@@ -33,11 +33,13 @@ class sender(App):
     def build(self):
         oscAPI.init()
 
-    def sendMessage(self, str):
+    def sendMessage(self, tokenNum):
+        # ip = '198.21.242.1'
         ip = '198.21.196.89'
+
         port = 5000
-        print("Sending Message!\n")
-        oscAPI.sendMsg( '0', [0, str], ipAddr= ip, port= port)
+        print("Sending Message! " + tokenNum)
+        oscAPI.sendMsg( '0', [tokenNum], ipAddr= ip, port= port)
         
     pass
 
@@ -51,12 +53,24 @@ class MyKnob(Knob):
     def on_knob(self, value, pattern_id):
         angle = value
         self.obj.rotation = angle
-        sender.sendMessage(self, str(int(self.obj.rotation)))
+        # sender.sendMessage(self, str(int(self.obj.rotation)))
         # print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
 
 
     def on_token_placed(self, instance, value):
-        print("token Placed: " + str(value))
+        videoNum = 0
+
+        if self.knobimg_source == "knob1.png":
+            videoNum = 0
+        elif self.knobimg_source == "knob2.png":
+            videoNum = 1
+        elif self.knobimg_source == "knob3.png":
+            videoNum = 2
+        else:
+            videoNum = 3
+
+        sender.sendMessage(self, str(videoNum))
+        print("Token Number: " + str(videoNum))
 
 class TeiKnobApp(App):
 
