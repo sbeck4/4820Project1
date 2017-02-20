@@ -9,16 +9,6 @@ from kivy.lib.osc         import oscAPI
 # Import clock (required by osc listener)
 from kivy.clock           import Clock
 
-#Wade King implemented this!
-from kivy.app           import App
-from kivy.uix.button    import Button
-from kivy.uix.label     import Label
-from kivy.uix.boxlayout import BoxLayout
-#import Project1
-# Import kivy osc library
-from kivy.lib.osc         import oscAPI 
-# Import clock (required by osc listener)
-from kivy.clock           import Clock
 import VideoPlayer
 class receiver(App):
     # Set ip and port to listen to
@@ -60,7 +50,7 @@ class receiver(App):
         #play = VideoPlayer.VideoPlayer()
         self.play.scrubVideo(vid_num, 0)
          
-        return play
+        return self.play
 
 
 receiver().run()
