@@ -23,7 +23,6 @@ class receiver(App):
         oscid = oscAPI.listen(ipAddr=self.ip, port= self.port) 
         # listens for osc messages every screen refresh
         Clock.schedule_interval(lambda *x: oscAPI.readQueue(oscid), 0)
-
         # binds messages - this listens to messages if prefix /1/tok
         oscAPI.bind(oscid, self.receivedegrees, '0')
 
@@ -51,6 +50,5 @@ class receiver(App):
         self.play.scrubVideo(vid_num, 0)
          
         return self.play
-
 
 receiver().run()
