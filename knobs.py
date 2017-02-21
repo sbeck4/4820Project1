@@ -16,7 +16,6 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.config import Config
 
-
 from tei_knob import  Knob
 
 import kivy
@@ -56,7 +55,6 @@ class MyKnob(Knob):
         # sender.sendMessage(self, str(int(self.obj.rotation)))
         # print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
 
-
     def on_token_placed(self, instance, value):
         videoNum = 0
 
@@ -73,9 +71,7 @@ class MyKnob(Knob):
         print("Token Number: " + str(videoNum))
 
 class TeiKnobApp(App):
-
     def build(self):
-
         Config.set('graphics', 'width', '950')
         Config.set('graphics', 'height', '540')
         # creates a float layout
