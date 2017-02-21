@@ -19,11 +19,9 @@ class VideoPlayer(App):
 
     Window.borderless = True
     def build(self):	
-       
         return self.Vlayout
 
     def scrubVideo(self, vidNum, vidPos):
-        
         if vidNum != self.currentVid: 
             if self.currentVid != '-1':
                 self.video1.play = False
@@ -47,9 +45,7 @@ class VideoPlayer(App):
             self.currentVid = vidNum
             self.run()
     
-
     def closeVid(self):
         self.Vlayout.remove_widget(self.video)
-
-       
+        
 #VideoPlayer().run()
