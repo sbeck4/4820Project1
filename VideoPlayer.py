@@ -8,9 +8,6 @@ from kivy.lib.osc import oscAPI
 from kivy.uix.actionbar import ActionBar
 from kivy.core.window import Window
 import time
-#from kivy.config import Config
-#Config.set('graphics', 'fullscreen', 'fake')
-# Warning, have a global Vlayout may cause an error. 
 
 class VideoPlayer(App):
     currentVid = '-1'	
@@ -19,8 +16,7 @@ class VideoPlayer(App):
     video2 = Video(source='transition2.mp4') 
     video3 = Video(source='transition3.mp4') 
     video4 = Video(source='transition4.mp4')    
-    #actbar = ActionBar()
-    #Vlayout.add_widget(actbar)
+
     Window.borderless = True
     def build(self):	
        
