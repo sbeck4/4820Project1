@@ -1,5 +1,4 @@
-###Commited by Shannon
-
+### This file was adapted from the original example file
 ###This file is for the horizontal screen
 
 import sys
@@ -23,9 +22,6 @@ from kivy.lib.osc         import oscAPI
 from kivy.app import App
 # Import clock (required by osc listener)
 from kivy.clock           import Clock
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.label import Label
 
 class sender(App):
 
@@ -44,6 +40,7 @@ class sender(App):
 
 sender().run()
 
+
 class MyKnob(Knob):
     # Object property that receives the image
     obj = ObjectProperty()
@@ -55,6 +52,7 @@ class MyKnob(Knob):
         # sender.sendMessage(self, str(int(self.obj.rotation)))
         # print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
 
+    # on_token_place is called when the token is detected, sends the message
     def on_token_placed(self, instance, value):
         videoNum = 0
 
@@ -67,27 +65,31 @@ class MyKnob(Knob):
         else:
             videoNum = 3
 
+        # sends the number of the knob to the verticle screen so it knows
+        # what video to play
         sender.sendMessage(self, str(videoNum))
         print("Token Number: " + str(videoNum))
 
 class TeiKnobApp(App):
+
     def build(self):
-        Config.set('graphics', 'width', '950')
-        Config.set('graphics', 'height', '540')
+
+        Config.set('graphics', 'width', '1450')
+        Config.set('graphics', 'height', '810')
         # creates a float layout
-        root = FloatLayout(size=(1920,1080), pos = (0,0))
+        root = FloatLayout(size=(2950,1650), pos = (0,0))
         # Creates a scatter widget
         scatter = Scatter()
        
-                 # Creates an image widget
-        root_image = Image(source='Bottom_Screen1.jpeg', size_hint_x=None, width=1920,
-                                              size_hint_y=None, height=1080,
+        # Creates an image widget
+        root_image = Image(source='Bottom_Screen1.jpeg', size_hint_x=None, width=2950,
+                                              size_hint_y=None, height=1650,
                                               allow_stretch = True,
                                               keep_ratio = True)
         root.add_widget(root_image)
 
-        # Creates a MyKnob object
-        knob1 = MyKnob(size = (300, 300),
+        # Creates the knob objects - creates first knob
+        knob1 = MyKnob(size = (460, 460),
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
@@ -98,7 +100,8 @@ class TeiKnobApp(App):
                          debug = False,
                          obj = scatter) # Passes the object to the knob
 
-        knob2 = MyKnob(size = (300, 300),
+        # Creates second knob object
+        knob2 = MyKnob(size = (460, 460),
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
@@ -109,7 +112,8 @@ class TeiKnobApp(App):
                          debug = False,
                          obj = scatter) # Passes the object to the knob
 
-        knob3 = MyKnob(size = (300, 300),
+        # Creates third knob
+        knob3 = MyKnob(size = (460, 460),
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
@@ -120,7 +124,8 @@ class TeiKnobApp(App):
                          debug = False,
                          obj = scatter) # Passes the object to the knob
 
-        knob4 = MyKnob(size = (300, 300),
+        # Creates fourth knob
+        knob4 = MyKnob(size = (460, 460),
                          min = 0, max = 360,
                          step = 1,
                          show_marker = True,
@@ -131,27 +136,28 @@ class TeiKnobApp(App):
                          debug = False,
                          obj = scatter) # Passes the object to the knob
 
+        # These functions place the konbs on the screen in the right position
         widget1 = RelativeLayout(size_hint = (None, None), 
-                                 size = (300,300),
-                                 pos = (94,29))
+                                 size = (460,460),
+                                 pos = (152,54))
         widget1.add_widget(knob1)
 
 
         widget2 = RelativeLayout(size_hint = (None, None), 
-                                 size = (300,300),
-                                 pos = (572,29))
+                                 size = (460,460),
+                                 pos = (880,54))
         widget2.add_widget(knob2)
 
 
         widget3 = RelativeLayout(size_hint = (None, None), 
-                                 size = (300,300),
-                                 pos = (1048,29))
+                                 size = (460,460),
+                                 pos = (1610,54))
         widget3.add_widget(knob3)
 
 
         widget4 = RelativeLayout(size_hint = (None, None), 
-                                 size = (300,300),
-                                 pos = (1526,29))
+                                 size = (460,460),
+                                 pos = (2340,54))
         widget4.add_widget(knob4)
         
         
