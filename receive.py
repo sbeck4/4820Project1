@@ -68,15 +68,22 @@ class receiver(App):
         # return root
         return root
 #if __name__ == "__main__":
-    def receivedegrees(self, vidnum, instance):
+    def token_on(self, vidnum, instance):
         print "received data from sender"
         print "%s" % vidnum[2]
-        vid_num = vidnum[2] #int(degrees[3])
+        vid_num = int(vidnum[2]) #int(degrees[3])
+        current_angle = 61
         #time = float(degrees[2]) / 360;
-        print "vidnum = %s" % vid_num
+        print "vidnum = %d" % vid_num
         #play = VideoPlayer.VideoPlayer()
-        self.play.scrubVideo(vid_num, 0)
+        self.play.chooseVideo(vid_num)
          
         return self.play
+
+    def token_turned(self, data, instance):
+        vid_num = self.play.currentVid
+        current_angle = 61 #data[3]
+        videotime = self.play.get_time(current_angle, vid_num)
+        self.play.scrubVideo(videotime)
 
 receiver().run()
