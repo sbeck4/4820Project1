@@ -2,7 +2,7 @@
 
 Contributions
 - Shannon Beck: knobs.py, video content for the vertical screen
-- Wade: 
+- Wade: receive.py and partially VideoPlayer.py. In VideoPlayer, implemented scrubVideo() and get_time()
 - Josh: 
 
 How to Run
