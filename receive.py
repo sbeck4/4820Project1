@@ -3,6 +3,17 @@ from kivy.app           import App
 from kivy.uix.button    import Button
 from kivy.uix.label     import Label
 from kivy.uix.boxlayout import BoxLayout
+
+# Import kivy osc library
+from kivy.lib.osc         import oscAPI 
+# Import clock (required by osc listener)
+from kivy.clock           import Clock
+
+#Wade King implemented this!
+from kivy.app           import App
+from kivy.uix.button    import Button
+from kivy.uix.label     import Label
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.image      import Image
 from kivy.uix.scatter    import Scatter
@@ -25,7 +36,7 @@ class receiver(App):
     play = VideoPlayer.VideoPlayer()
 
     def build(self):
-        Window.size = (1600, 900)
+        Window.size = (1366, 768)
         Window.borderless = True
         Window.fullscreen = True
         scat = Scatter()
@@ -43,8 +54,8 @@ class receiver(App):
         #self.label = Label(text="This is our vertical sceen!", font_size='50sp')
         #root.add_widget(self.label)
 
-        root_image = Image(source='Bottom_Screen1.jpeg', size_hint_x=None, width=1600,
-                                              size_hint_y=None, height=900,
+        root_image = Image(source='PauseScreen.png', size_hint_x=None, width=1366,
+                                              size_hint_y=None, height=768,
                                               allow_stretch = True,
                                               keep_ratio = True)
         root.add_widget(root_image)
