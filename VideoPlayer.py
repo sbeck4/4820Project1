@@ -12,6 +12,7 @@ from kivy.config import Config
 #from kivy.lib.gstplayer import GstPlayer
 from kivy.uix.image      import Image
 
+#This class def. done by Joshua Moore
 class VideoPlayer(App):
     currentVid = -1	
     currentVidCounter = 0
@@ -28,6 +29,7 @@ class VideoPlayer(App):
                                               allow_stretch = True,
                                               keep_ratio = True)
     
+    #This function done by Joshua Moore
     def build(self):
 
         Window.size = (1366, 768)
@@ -37,8 +39,6 @@ class VideoPlayer(App):
 
         return self.Vlayout
     #This function done by Joshua Moore
-
-   
     def chooseVideo(self, vidNum):
   
         # Currently pauses video upon token removal and plays from  
