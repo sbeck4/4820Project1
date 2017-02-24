@@ -47,7 +47,7 @@ class receiver(App):
         # listens for osc messages every screen refresh
         Clock.schedule_interval(lambda *x: oscAPI.readQueue(oscid), 0)
         # binds messages - this listens to messages if prefix /1/tok
-        oscAPI.bind(oscid, self.receivedegrees, '0')
+        oscAPI.bind(oscid, self.token_on, '0')
 
         # add a label to the screen
         root = FloatLayout(size=(2950,1650), orientation='vertical')
