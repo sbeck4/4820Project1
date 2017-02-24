@@ -1,5 +1,7 @@
 4820 Project 1
 
+Repository Link: https://github.com/sbeck4/4820Project1
+
 Contributions
 - Shannon Beck: knobs.py, video content for the vertical screen
 - Wade: receive.py and partially VideoPlayer.py. In VideoPlayer, implemented scrubVideo() and get_time()
