@@ -46,6 +46,7 @@ class VideoPlayer(App):
         # Later: Ideally want a static image to display upon removal
           # and for video to start from beginning upon replacement
 
+           
         if vidNum == self.currentVid:
             if self.currentVidCounter % 2 == 1:
                 self.Vlayout.clear_widgets()
@@ -66,6 +67,7 @@ class VideoPlayer(App):
                 self.video4.play = False
                 self.Vlayout.clear_widgets()
 
+            #This will be simplified -jm
             if vidNum == 0:
                 self.Vlayout.add_widget(self.video1)
                 self.currentVidObj = self.video1
