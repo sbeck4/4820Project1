@@ -50,16 +50,19 @@ class VideoPlayer(App):
         if vidNum == self.currentVid:
             if self.currentVidCounter % 2 == 1:
                 self.Vlayout.clear_widgets(videolist)
+                videolist.clear()
                 self.Vlayout.add_widget(self.currentVidObj)
                 self.currentVidObj.state = 'play'
             else:
                 self.currentVidObj.state = 'pause'
                 self.Vlayout.clear_widgets(videolist)
+                videolist.clear()
                 self.Vlayout.add_widget(self.root_image)
                 
             self.currentVidCounter += 1
         else:
             self.Vlayout.clear_widgets(videolist)
+            videolist.clear()
             if self.currentVid != -1:
                 self.video1.play = False
                 self.video2.play = False
