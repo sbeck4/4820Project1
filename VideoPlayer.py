@@ -45,45 +45,49 @@ class VideoPlayer(App):
           # previously paused spot
         # Later: Ideally want a static image to display upon removal
           # and for video to start from beginning upon replacement
-
+        videolist = [];
            
         if vidNum == self.currentVid:
             if self.currentVidCounter % 2 == 1:
-                self.Vlayout.clear_widgets()
+                self.Vlayout.clear_widgets(videolist)
                 self.Vlayout.add_widget(self.currentVidObj)
                 self.currentVidObj.state = 'play'
             else:
                 self.currentVidObj.state = 'pause'
-                self.Vlayout.clear_widgets()
+                self.Vlayout.clear_widgets(videolist)
                 self.Vlayout.add_widget(self.root_image)
                 
             self.currentVidCounter += 1
         else:
-            self.Vlayout.clear_widgets()
+            self.Vlayout.clear_widgets(videolist)
             if self.currentVid != -1:
                 self.video1.play = False
                 self.video2.play = False
                 self.video3.play = False
                 self.video4.play = False
-                self.Vlayout.clear_widgets()
+                #self.Vlayout.clear_widgets()
 
             #This will be simplified -jm
             if vidNum == 0:
+                videolist.append(self.video1)
                 self.Vlayout.add_widget(self.video1)
                 self.currentVidObj = self.video1
                 self.video1.state = 'play'
                 print ("Playing Video: 1")
             elif vidNum == 1:
+                videolist.append(self.video2)
                 self.Vlayout.add_widget(self.video2)
                 self.currentVidObj = self.video2
                 self.video2.state = 'play'
                 print ("Playing Video: 2")
             elif vidNum == 2:
+                videolist.append(self.video3)
                 self.Vlayout.add_widget(self.video3)
                 self.currentVidObj = self.video3
                 self.video3.state = 'play'
                 print ("Playing Video: 3")
             elif vidNum == 3:
+                videolist.append(self.video4)
                 self.Vlayout.add_widget(self.video4)
                 self.currentVidObj = self.video4
                 self.video4.state = 'play'
