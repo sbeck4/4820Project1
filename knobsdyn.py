@@ -67,7 +67,11 @@ class MyKnob(Knob):
             videoNum = 2
         else:
             videoNum = 3
-
+        
+        #self.remove_widget(self.arrows1)
+        #self.remove_widget(self.arrows2)
+        #self.remove_widget(self.arrows3)
+        #self.remove_widget(self.arrows4)
         # sends the number of the knob to the verticle screen so it knows
         # what video to play
         sender.sendMessage(self.send, str(videoNum))
@@ -181,6 +185,31 @@ class TeiKnobApp(App):
 
         root.add_widget(widget4)
 
+        #done by wade
+        arrows1 = Image(source='arrows.png', size_hint_x=None, width=425,
+                                              size_hint_y=None, height=425,
+                                              pos = (scale_to_res(-10, 1980, 0), scale_to_res(-65, 1080, 1)),
+                                              allow_stretch = True,
+                                              keep_ratio = True)
+        root.add_widget(arrows1)        
+        arrows2 = Image(source='arrows.png', size_hint_x=None, width=425,
+                                              size_hint_y=None, height=425,
+                                              pos = (scale_to_res(470, 1980, 0), scale_to_res(-65, 1080, 1)),
+                                              allow_stretch = True,
+                                              keep_ratio = True) 
+        root.add_widget(arrows2) 
+        arrows3 = Image(source='arrows.png', size_hint_x=None, width=425,
+                                              size_hint_y=None, height=425,
+                                              pos = (scale_to_res(965, 1980, 0), scale_to_res(-65, 1080, 1)),
+                                              allow_stretch = True,
+                                              keep_ratio = True)
+        root.add_widget(arrows3)  
+        arrows4 = Image(source='arrows.png', size_hint_x=None, width=425,
+                                              size_hint_y=None, height=425,
+                                              pos = (scale_to_res(1465, 1980, 0), scale_to_res(-65, 1080, 1)),
+                                              allow_stretch = True,
+                                              keep_ratio = True)
+        root.add_widget(arrows4)  
 
 
         return root
