@@ -12,6 +12,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.scatter    import Scatter
 from kivy.uix.image      import Image
 from kivy.uix.floatlayout import FloatLayout
+from kivy.animation import Animation
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.config import Config
 
@@ -191,27 +192,33 @@ class TeiKnobApp(App):
                                               pos = (scale_to_res(-10, 1980, 0), scale_to_res(-65, 1080, 1)),
                                               allow_stretch = True,
                                               keep_ratio = True)
+        #scatter1 = Scatter()
+        #scatter1.add_widget(arrows1)
         root.add_widget(arrows1)        
         arrows2 = Image(source='arrows.png', size_hint_x=None, width=425,
                                               size_hint_y=None, height=425,
                                               pos = (scale_to_res(470, 1980, 0), scale_to_res(-65, 1080, 1)),
                                               allow_stretch = True,
                                               keep_ratio = True) 
+        #scatter2 = Scatter().add_widget(arrows2)
         root.add_widget(arrows2) 
         arrows3 = Image(source='arrows.png', size_hint_x=None, width=425,
                                               size_hint_y=None, height=425,
                                               pos = (scale_to_res(965, 1980, 0), scale_to_res(-65, 1080, 1)),
                                               allow_stretch = True,
                                               keep_ratio = True)
+        #scatter3 = Scatter().add_widget(arrows3)
         root.add_widget(arrows3)  
         arrows4 = Image(source='arrows.png', size_hint_x=None, width=425,
                                               size_hint_y=None, height=425,
                                               pos = (scale_to_res(1465, 1980, 0), scale_to_res(-65, 1080, 1)),
                                               allow_stretch = True,
                                               keep_ratio = True)
+        #scatter4 = Scatter().add_widget(arrows4)
         root.add_widget(arrows4)  
 
-
+        #anim = Animation(center = scatter1.pos, rotation = 360)
+        #anim.start(scatter1);
         return root
 
 TeiKnobApp().run()
