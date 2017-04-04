@@ -99,11 +99,11 @@ class MyKnob(Knob):
         elif self.knobimg_source == "knob3.png":
             videoNum = 2
             if self.count % 2 == 0:
-                self.o2.source = 'HS1.mp4'    
+                self.o2.source = 'HS3.mp4'    
         else:
             videoNum = 3
             if self.count % 2 == 0:
-                self.o2.source = 'HS2.mp4'
+                self.o2.source = 'HS4.mp4'
 
         print value
         print "value"
