@@ -18,10 +18,10 @@ class VideoPlayer(App):
     currentVidCounter = 0
     currentVidObj = None
     Vlayout =  BoxLayout(orientation='vertical')
-    video1 = Video(source='transition1.mp4')
-    video2 = Video(source='transition2.mp4') 
-    video3 = Video(source='transition3.mp4') 
-    video4 = Video(source='transition4.mp4')    
+    video1 = Video(source='transition1-1.mp4')
+    video2 = Video(source='transition2-1.mp4') 
+    video3 = Video(source='transition3-1.mp4') 
+    video4 = Video(source='transition4-1.mp4')    
     #time-related functions done by Wade King
     vidtimeList = [6, 2, 5, 3]
     root_image = Image(source='PauseScreen.png', size_hint_x=None, width=1366,
@@ -38,7 +38,7 @@ class VideoPlayer(App):
 
 
         return self.Vlayout
-    #This function done by Joshua Moore
+    #This function done by Joshua Moore. It could be cleaner. 
     def chooseVideo(self, vidNum):
   
         # Currently pauses video upon token removal and plays from  
