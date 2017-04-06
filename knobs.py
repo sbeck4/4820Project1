@@ -62,6 +62,7 @@ class MyKnob(Knob):
     def getDegrees():
         return degrees
 
+    #Done by Joshua Moore ----------------------------------
     def on_knob(self, value, pattern_id):
         angle = value
         degrees = angle
@@ -72,6 +73,7 @@ class MyKnob(Knob):
         if degrees % 1 == 0:
             self.o2.seek(float(degrees)/360000.0)
             print(float(degrees/360000.0))
+    #-------------------------------------------------------
          
         #sender.sendMessage(self, str(int(self.obj.rotation)))
          #print("Token #: " + str(self.knobimg_source) + "\nRotation Value: " + str(self.obj.rotation))
@@ -80,11 +82,10 @@ class MyKnob(Knob):
     def on_token_placed(self, instance, value):
         videoNum = 0
 
+        #This done by Joshua Moore -------------------------------------
         if self.count == 500:
             count = 0
 
-       
-        
         if self.knobimg_source == "knob1.png":
             videoNum = 0
             if self.count % 2 == 0:
@@ -111,6 +112,9 @@ class MyKnob(Knob):
             self.o2.state = 'stop'
 
         self.count = self.count + 1
+        
+        #----------------------------------------------------------------
+        
         # sends the number of the knob to the verticle screen so it knows
         # what video to play
         sender.sendMessage(self.send, str(videoNum))
@@ -126,8 +130,7 @@ resolution = [GetSystemMetrics(0), GetSystemMetrics(1)]
 def scale_to_res(val, i, j):
         
         return (int(float(val) / float(i) * float(resolution[j])))
-
-
+#done by Shannon
 class TeiKnobApp(App): 
     count = 0
     cHolder = None
@@ -151,7 +154,7 @@ class TeiKnobApp(App):
                                               allow_stretch = True,
                                               keep_ratio = True)
 
-        
+        #This done by Joshua Moore -------------------------------------
         self.cHolder = RelativeLayout(size_hint = (None, None), 
                                  size = (scale_to_res(500, 500, 0),scale_to_res(500, 500, 0)),
                                  pos = (scale_to_res(0, 1980, 0), scale_to_res(-310, 800, 1))) #1610
@@ -176,8 +179,14 @@ class TeiKnobApp(App):
         
         self.cHolder.add_widget(self.videoHS)
         root.add_widget(self.cHolder)
+        
+        #---------------------------------------------------------------
+        
+        
         root.add_widget(root_image)
 
+        
+        
         # Creates the knob objects - creates first knob
         self.knob1 = MyKnob(size = (scale_to_res(315, 1980, 0),scale_to_res(315, 1980, 0)),
                          min = 0, max = 360,
@@ -231,7 +240,7 @@ class TeiKnobApp(App):
 
         
 
-
+        # done by shannon and wade
         # These functions place the konbs on the screen in the right position
         widget1 = RelativeLayout(size_hint = (None, None), 
                                  size = (scale_to_res(315, 1980, 0),scale_to_res(315, 1980, 0)),
