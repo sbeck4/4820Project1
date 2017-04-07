@@ -4,7 +4,7 @@ Repository Link: https://github.com/sbeck4/4820Project1
 
 Contributions
 - Shannon Beck: knobs.py, video content for the vertical screen
-- Wade: receive.py and partially VideoPlayer.py. In VideoPlayer, implemented scrubVideo() and get_time()
+- Wade: receive.py and partially VideoPlayer.py and knob.py. In VideoPlayer, implemented scrubVideo() and get_time(), animations and images for knobs.py, 
 - Josh: VideoPlayer.py:  chooseVideo(), build(), and all other Class definitions/imports
         Knobs.py:        onKnob(), most of on_token_placed(), some of TeiKnobApp: build() function
 
