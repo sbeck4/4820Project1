@@ -37,7 +37,7 @@ class sender():
     def sendMessage(self, tokenNum):
         # ip = '198.21.242.1'
         #ip = '192.168.43.151'
-        ip = '198.21.199.110'
+        ip = '198.21.199.177'
 
         port = 5000
         print("Sending Message! " + tokenNum)
@@ -70,7 +70,7 @@ class MyKnob(Knob):
         
         degrees = int(degrees*1000)
         print(degrees)
-        if degrees % 1 == 0:
+        if degrees % 10 == 0:
             self.o2.seek(float(degrees)/360000.0)
             print(float(degrees/360000.0))
     #-------------------------------------------------------
