@@ -1,6 +1,3 @@
-#Joshua Moore
-#2/13/17
-
 from kivy.app import App
 from kivy.uix.video import Video
 from kivy.uix.boxlayout import BoxLayout
@@ -15,6 +12,7 @@ from kivy.uix.image      import Image
 #This class def. done by Joshua Moore
 class VideoPlayer(App):
     currentVid = -1	
+
     currentVidCounter = 0
     currentVidObj = None
     Vlayout =  BoxLayout(orientation='vertical')
@@ -33,71 +31,75 @@ class VideoPlayer(App):
     def build(self):
 
         Window.size = (1366, 768)
-        Window.borderless = True
-        Window.fullscreen = True
+       # Window.borderless = True
+        #Window.fullscreen = True
 
 
         return self.Vlayout
-    #This function done by Joshua Moore. It could be cleaner. 
+    #This function done by Joshua Moore
     def chooseVideo(self, vidNum):
   
         # Currently pauses video upon token removal and plays from  
           # previously paused spot
         # Later: Ideally want a static image to display upon removal
           # and for video to start from beginning upon replacement
-        videolist = [];
+        videolist = []
            
         if vidNum == self.currentVid:
             if self.currentVidCounter % 2 == 1:
                 self.Vlayout.clear_widgets(videolist)
-                videolist.clear()
+                #videolist.clear()
+                del videolist[:]
                 self.Vlayout.add_widget(self.currentVidObj)
                 self.currentVidObj.state = 'play'
             else:
                 self.currentVidObj.state = 'pause'
                 self.Vlayout.clear_widgets(videolist)
-                videolist.clear()
+                #videolist.clear()
+                del videolist[:]
                 self.Vlayout.add_widget(self.root_image)
                 
             self.currentVidCounter += 1
         else:
             self.Vlayout.clear_widgets(videolist)
-            videolist.clear()
+            #videolist.clear()
+            del videolist[:]
             if self.currentVid != -1:
                 self.video1.play = False
                 self.video2.play = False
                 self.video3.play = False
                 self.video4.play = False
-                #self.Vlayout.clear_widgets()
 
             #This will be simplified -jm
             if vidNum == 0:
-                videolist.append(self.video1)
+                videolist.insert(0,self.video1)
                 self.Vlayout.add_widget(self.video1)
                 self.currentVidObj = self.video1
                 self.video1.state = 'play'
-                print ("Playing Video: 1")
+                print ("Playing Video: 1-1")
             elif vidNum == 1:
-                videolist.append(self.video2)
+                videolist.insert(0,self.video2)
                 self.Vlayout.add_widget(self.video2)
                 self.currentVidObj = self.video2
                 self.video2.state = 'play'
-                print ("Playing Video: 2")
+                print ("Playing Video: 2-1")
             elif vidNum == 2:
-                videolist.append(self.video3)
+                videolist.insert(0,self.video3)
                 self.Vlayout.add_widget(self.video3)
                 self.currentVidObj = self.video3
                 self.video3.state = 'play'
-                print ("Playing Video: 3")
+                print ("Playing Video: 3-1")
             elif vidNum == 3:
-                videolist.append(self.video4)
+                videolist.insert(0, self.video4)
                 self.Vlayout.add_widget(self.video4)
                 self.currentVidObj = self.video4
                 self.video4.state = 'play'
-                print ("Playing Video: 4")
+                print ("Playing Video: 4-1")
             self.currentVid = vidNum
             self.currentVidCounter = 0
             self.run()
+           
+         
             
             
     #This function written by Wade King
@@ -121,5 +123,3 @@ class VideoPlayer(App):
 
     def closeVid(self):
         self.Vlayout.remove_widget(self.video)
-        
-#VideoPlayer().run()
