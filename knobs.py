@@ -267,12 +267,12 @@ class TeiKnobApp(App):
 
 
                 #done by wade
-        widgetobj1 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        widgetobj1 = Widget(size_hint_x=None, width=scale_to_res(500, 1980, 0), size_hint_y=None, height=scale_to_res(500, 1980, 0))
         relobj1 = RelativeLayout(size_hint = (None, None), 
-                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
-                                 pos = (scale_to_res(0, 1980, 0), scale_to_res(-45, 1080, 1)))
-        arrows1 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
-                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
+                                 size = (scale_to_res(500, 1980, 0),scale_to_res(500, 1980, 0)),
+                                 pos = (scale_to_res(0, 1980, 0), scale_to_res(-48, 1080, 1)))
+        arrows1 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(500, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(500, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
         scatter1 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj1.size)
@@ -281,12 +281,12 @@ class TeiKnobApp(App):
         relobj1.add_widget(widgetobj1)
         root.add_widget(relobj1) 
 
-        widgetobj2 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        widgetobj2 = Widget(size_hint_x=None, width=scale_to_res(500, 1980, 0), size_hint_y=None, height=scale_to_res(500, 1980, 0))
         relobj2 = RelativeLayout(size_hint = (None, None), 
-                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
-                                 pos = (scale_to_res(490, 1980, 0), scale_to_res(-45, 1080, 1)))
-        arrows2 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
-                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
+                                 size = (scale_to_res(500, 1980, 0),scale_to_res(500, 1980, 0)),
+                                 pos = (scale_to_res(489, 1980, 0), scale_to_res(-48, 1080, 1)))
+        arrows2 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(500, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(500, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
         scatter2 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj2.size)
@@ -295,12 +295,12 @@ class TeiKnobApp(App):
         relobj2.add_widget(widgetobj2)
         root.add_widget(relobj2)  
 
-        widgetobj3 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        widgetobj3 = Widget(size_hint_x=None, width=scale_to_res(500, 1980, 0), size_hint_y=None, height=scale_to_res(500, 1980, 0))
         relobj3 = RelativeLayout(size_hint = (None, None), 
-                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
-                                 pos = (scale_to_res(980, 1980, 0), scale_to_res(-45, 1080, 1)))
-        arrows3 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
-                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
+                                 size = (scale_to_res(500, 1980, 0),scale_to_res(500, 1980, 0)),
+                                 pos = (scale_to_res(984, 1980, 0), scale_to_res(-48, 1080, 1)))
+        arrows3 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(500, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(500, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
         scatter3 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj3.size)
@@ -309,12 +309,12 @@ class TeiKnobApp(App):
         relobj3.add_widget(widgetobj3)
         root.add_widget(relobj3)  
 
-        widgetobj4 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        widgetobj4 = Widget(size_hint_x=None, width=scale_to_res(500, 1980, 0), size_hint_y=None, height=scale_to_res(500, 1980, 0))
         relobj4 = RelativeLayout(size_hint = (None, None), 
-                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
-                                 pos = (scale_to_res(1480, 1980, 0), scale_to_res(-45, 1080, 1)))
-        arrows4 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
-                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
+                                 size = (scale_to_res(500, 1980, 0),scale_to_res(500, 1980, 0)),
+                                 pos = (scale_to_res(1478, 1980, 0), scale_to_res(-48, 1080, 1)))
+        arrows4 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(500, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(500, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
         scatter4 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj4.size)
