@@ -70,7 +70,7 @@ class MyKnob(Knob):
         
         degrees = int(degrees*1000)
         print(degrees)
-        if degrees % 10 == 0:
+        if degrees % 15 == 0:
             self.o2.seek(float(degrees)/360000.0)
             print(float(degrees/360000.0))
     #-------------------------------------------------------
@@ -149,10 +149,10 @@ class TeiKnobApp(App):
         scatter = Scatter()
        
         # Creates an image widget
-        root_image = Image(source='Bottom_Screen1.png', size_hint_x=None, width=resolution[0],
-                                              size_hint_y=None, height=resolution[1],
-                                              allow_stretch = True,
-                                              keep_ratio = True)
+        #root_image = Image(source='Bottom_Screen1.png', size_hint_x=None, width=resolution[0],
+                                              #size_hint_y=None, height=resolution[1],
+                                              #allow_stretch = True,
+                                              #keep_ratio = True)
 
         #This done by Joshua Moore -------------------------------------
         self.cHolder = RelativeLayout(size_hint = (None, None), 
@@ -169,7 +169,7 @@ class TeiKnobApp(App):
         self.videoHS.play = True
         
         self.videoHS.position = 2
-        #videoHS.state = 'pause'
+        #self.videoHS.state = 'pause'
 
         #cHolder.size = (scale_to_res(500, 500, 0),scale_to_res(500, 500, 0))
 
@@ -183,7 +183,7 @@ class TeiKnobApp(App):
         #---------------------------------------------------------------
         
         
-        root.add_widget(root_image)
+        #root.add_widget(root_image)
 
         
         
@@ -267,61 +267,73 @@ class TeiKnobApp(App):
 
 
                 #done by wade
-        widgetobj1 = Widget(pos = (scale_to_res(-220, 1980, 0), scale_to_res(-260, 1080, 1)), size_hint_x=None, width=425, size_hint_y=None, height=425)
-        arrows1 = Image(source='arrows.png', size_hint_x=None, width=425,
-                                              size_hint_y=None, height=425,
-                                              pos = (0,0),
+        widgetobj1 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        relobj1 = RelativeLayout(size_hint = (None, None), 
+                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
+                                 pos = (scale_to_res(0, 1980, 0), scale_to_res(-45, 1080, 1)))
+        arrows1 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
-        scatter1 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj1.size, center = widgetobj1.center)
+        scatter1 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj1.size)
         scatter1.add_widget(arrows1)
         widgetobj1.add_widget(scatter1) 
-        root.add_widget(widgetobj1) 
+        relobj1.add_widget(widgetobj1)
+        root.add_widget(relobj1) 
 
-        widgetobj2 = Widget(pos = (scale_to_res(270, 1980, 0), scale_to_res(-260, 1080, 1)), size_hint_x=None, width=425, size_hint_y=None, height=425)
-        arrows2 = Image(source='arrows.png', size_hint_x=None, width=425,
-                                              size_hint_y=None, height=425,
-                                              pos = (0,0),
+        widgetobj2 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        relobj2 = RelativeLayout(size_hint = (None, None), 
+                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
+                                 pos = (scale_to_res(490, 1980, 0), scale_to_res(-45, 1080, 1)))
+        arrows2 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
-        scatter2 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj2.size, center = widgetobj2.center)
+        scatter2 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj2.size)
         scatter2.add_widget(arrows2)
         widgetobj2.add_widget(scatter2) 
-        root.add_widget(widgetobj2) 
+        relobj2.add_widget(widgetobj2)
+        root.add_widget(relobj2)  
 
-        widgetobj3 = Widget(pos = (scale_to_res(765, 1980, 0), scale_to_res(-260, 1080, 1)), size_hint_x=None, width=425, size_hint_y=None, height=425)
-        arrows3 = Image(source='arrows.png', size_hint_x=None, width=425,
-                                              size_hint_y=None, height=425,
-                                              pos = (0,0),
+        widgetobj3 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        relobj3 = RelativeLayout(size_hint = (None, None), 
+                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
+                                 pos = (scale_to_res(980, 1980, 0), scale_to_res(-45, 1080, 1)))
+        arrows3 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
-        scatter3 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj3.size, center = widgetobj3.center)
+        scatter3 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj3.size)
         scatter3.add_widget(arrows3)
         widgetobj3.add_widget(scatter3) 
-        root.add_widget(widgetobj3) 
+        relobj3.add_widget(widgetobj3)
+        root.add_widget(relobj3)  
 
-        widgetobj4 = Widget(pos = (scale_to_res(1267, 1980, 0), scale_to_res(-260, 1080, 1)), size_hint_x=None, width=425, size_hint_y=None, height=425)
-        arrows4 = Image(source='arrows.png', size_hint_x=None, width=425,
-                                              size_hint_y=None, height=425,
-                                              pos = (0,0),
+        widgetobj4 = Widget(size_hint_x=None, width=scale_to_res(490, 1980, 0), size_hint_y=None, height=scale_to_res(490, 1980, 0))
+        relobj4 = RelativeLayout(size_hint = (None, None), 
+                                 size = (scale_to_res(490, 1980, 0),scale_to_res(490, 1980, 0)),
+                                 pos = (scale_to_res(1480, 1980, 0), scale_to_res(-45, 1080, 1)))
+        arrows4 = Image(source='arrows.png', size_hint_x=None, width=scale_to_res(490, 1980, 0),
+                                              size_hint_y=None, height=scale_to_res(490, 1980, 0),
                                               allow_stretch = True,
                                               keep_ratio = True)
-        scatter4 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj4.size, center = widgetobj4.center)
+        scatter4 = Scatter(do_translation = False, do_scale = False, do_rotation = False, rotation = 0, size = widgetobj4.size)
         scatter4.add_widget(arrows4)
         widgetobj4.add_widget(scatter4) 
-        root.add_widget(widgetobj4) 
+        relobj4.add_widget(widgetobj4)
+        root.add_widget(relobj4)  
 
 
-        anim1 = (Animation(rotation = -360, duration = 100) + Animation(rotation = 0, duration = 0))
+        anim1 = (Animation(rotation = -360, duration = 50) + Animation(rotation = 0, duration = 0))
         anim1.repeat = True
         anim1.start(scatter1);
-        anim2 = (Animation(rotation = -360, duration = 100) + Animation(rotation = 0, duration = 0))
+        anim2 = (Animation(rotation = -360, duration = 50) + Animation(rotation = 0, duration = 0))
         anim2.repeat = True
         anim2.start(scatter2);
-        anim3 = (Animation(rotation = -360, duration = 100) + Animation(rotation = 0, duration = 0))
+        anim3 = (Animation(rotation = -360, duration = 50) + Animation(rotation = 0, duration = 0))
         anim3.repeat = True
         anim3.start(scatter3);
-        anim4 = (Animation(rotation = -360, duration = 100) + Animation(rotation = 0, duration = 0))
+        anim4 = (Animation(rotation = -360, duration = 50) + Animation(rotation = 0, duration = 0))
         anim4.repeat = True
         anim4.start(scatter4);
         
