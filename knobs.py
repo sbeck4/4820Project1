@@ -70,9 +70,11 @@ class MyKnob(Knob):
         
         degrees = int(degrees*1000)
         print(degrees)
-        if degrees % 15 == 0:
+        if degrees % 2 == 0:
             self.o2.seek(float(degrees)/360000.0)
+            self.o2.state = 'pause'
             print(float(degrees/360000.0))
+
     #-------------------------------------------------------
          
         #sender.sendMessage(self, str(int(self.obj.rotation)))
@@ -88,23 +90,25 @@ class MyKnob(Knob):
 
         if self.knobimg_source == "knob1.png":
             videoNum = 0
+            self.o2.seek(0.0)
             if self.count % 2 == 0:
-                self.o2.source = 'HS1.mp4'
-                #videoHS = Video(source='HS1.mp4')
-
+                self.o2.source = 'HS1720.mp4'
         elif self.knobimg_source == "knob2.png":
             videoNum = 1
+            self.o2.seek(0.0)
             if self.count % 2 == 0:
-                self.o2.source = 'HS2.mp4'
-                
+                self.o2.source = 'HS2720.mp4'
         elif self.knobimg_source == "knob3.png":
-            videoNum = 2
+            videoNum = 2  
+            self.o2.seek(0.0)
             if self.count % 2 == 0:
-                self.o2.source = 'HS3.mp4'    
+                self.o2.source = 'HS3720.mp4'    
         else:
             videoNum = 3
+            self.o2.seek(0.0)
             if self.count % 2 == 0:
-                self.o2.source = 'HS4.mp4'
+                self.o2.source = 'HS4720.mp4'
+                
 
         print value
         print "value"
@@ -156,12 +160,12 @@ class TeiKnobApp(App):
 
         #This done by Joshua Moore -------------------------------------
         self.cHolder = RelativeLayout(size_hint = (None, None), 
-                                 size = (scale_to_res(500, 500, 0),scale_to_res(500, 500, 0)),
-                                 pos = (scale_to_res(0, 1980, 0), scale_to_res(-310, 800, 1))) #1610
+                                 size = (scale_to_res(1980, 1980, 0),scale_to_res(1080, 1080, 1)),
+                                 pos = (scale_to_res(0, 1980, 0), scale_to_res(0, 1080, 1))) #1610
 
 
 
-        self.videoHS = Video(source='HS1.mp4', play = False, options={'allow_stretch':True})
+        self.videoHS = Video(source='HS1.mp4', play = False, allow_stretch= True, keep_ratio = False, size= root.size)
     
         #videoHS = Video(source='HS1.mp4', play = False)
         #videoHS = Video(source='transition1.mp4')
