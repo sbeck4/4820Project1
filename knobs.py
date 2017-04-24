@@ -20,7 +20,7 @@ from kivy.uix.carousel import Carousel
 from kivy.uix.image import AsyncImage
 from tei_knob import  Knob
 from kivy.uix.video import Video
-
+from kivy.core.audio import SoundLoader
 import kivy
 from kivy.lib.osc         import oscAPI 
 from kivy.app import App
@@ -68,10 +68,15 @@ class MyKnob(Knob):
         degrees = angle
         self.obj.rotation = angle
         
-        degrees = int(degrees*1000)
+        degrees = int(degrees)
         print(degrees)
+
+        if (degrees) % 10 == 0:
+            sound = SoundLoader.load('rotation2.wav')
+            sound.play()
+
         if degrees % 2 == 0:
-            self.o2.seek(float(degrees)/360000.0)
+            self.o2.seek(float(degrees)/360.0)
             self.o2.state = 'pause'
             print(float(degrees/360000.0))
 
@@ -108,6 +113,9 @@ class MyKnob(Knob):
             self.o2.seek(0.0)
             if self.count % 2 == 0:
                 self.o2.source = 'HS4720.mp4'
+
+        sound = SoundLoader.load('rotation2.wav')
+        sound.play()
                 
 
         print value
@@ -165,7 +173,7 @@ class TeiKnobApp(App):
 
 
 
-        self.videoHS = Video(source='HS1.mp4', play = False, allow_stretch= True, keep_ratio = False, size= root.size)
+        self.videoHS = Video(source='HS1720.mp4', play = False, allow_stretch= True, keep_ratio = False, size= root.size)
     
         #videoHS = Video(source='HS1.mp4', play = False)
         #videoHS = Video(source='transition1.mp4')
@@ -365,6 +373,5 @@ class TeiKnobApp(App):
         
 
 TeiKnobApp().run()
-
 
 
